@@ -1,7 +1,7 @@
 package practice;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 /**
@@ -15,43 +15,43 @@ public abstract class SlidingWindowMaximumTest {
 
   @Test
   public void windowOfOneCopiesEachValue() {
-    assertMaxima(new int[] {4, 2, 7},
+    assertArrayEquals(new int[] {4, 2, 7},
         slidingMaximum(new int[] {4, 2, 7}, 1));
   }
 
   @Test
   public void windowSpanningTheWholeArrayGivesOneMaximum() {
-    assertMaxima(new int[] {5},
+    assertArrayEquals(new int[] {5},
         slidingMaximum(new int[] {2, 5, 1}, 3));
   }
 
   @Test
   public void decreasingValuesKeepTheFirstAsMaximum() {
-    assertMaxima(new int[] {9, 8, 7},
+    assertArrayEquals(new int[] {9, 8, 7},
         slidingMaximum(new int[] {9, 8, 7, 6, 5}, 3));
   }
 
   @Test
   public void increasingValuesKeepTheLastAsMaximum() {
-    assertMaxima(new int[] {7, 8, 9},
+    assertArrayEquals(new int[] {7, 8, 9},
         slidingMaximum(new int[] {5, 6, 7, 8, 9}, 3));
   }
 
   @Test
   public void maximumLeavingTheWindowIsReplaced() {
-    assertMaxima(new int[] {9, 3},
+    assertArrayEquals(new int[] {9, 3},
         slidingMaximum(new int[] {9, 1, 2, 3}, 3));
   }
 
   @Test
   public void equalValuesGiveTheSameMaximum() {
-    assertMaxima(new int[] {5, 5, 5},
+    assertArrayEquals(new int[] {5, 5, 5},
         slidingMaximum(new int[] {5, 5, 5, 5}, 2));
   }
 
   @Test
   public void maximumChangesAsTheWindowSlides() {
-    assertMaxima(new int[] {3, 3, 5, 5, 6, 7},
+    assertArrayEquals(new int[] {3, 3, 5, 5, 6, 7},
         slidingMaximum(new int[] {1, 3, -1, -3, 5, 3, 6, 7}, 3));
   }
 
@@ -72,14 +72,6 @@ public abstract class SlidingWindowMaximumTest {
       fail("expected IllegalArgumentException when k exceeds the array length");
     } catch (IllegalArgumentException e) {
       return;
-    }
-  }
-
-  // Asserts that actual holds exactly the expected maxima, in order.
-  private static void assertMaxima(int[] expected, int[] actual) {
-    assertEquals(expected.length, actual.length);
-    for (int i = 0; i < expected.length; i++) {
-      assertEquals(expected[i], actual[i]);
     }
   }
 }
