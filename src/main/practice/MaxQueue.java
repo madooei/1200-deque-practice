@@ -17,45 +17,33 @@ public class MaxQueue {
 
   // Adds item at the back of the queue.
   public void enqueue(int item) {
-    items.addLast(item);
-    while (!candidates.isEmpty() && candidates.getLast() < item) {
-      candidates.removeLast();
-    }
-    candidates.addLast(item);
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Removes the oldest item. Throws NoSuchElementException if the queue is
   // empty.
   public void dequeue() {
-    if (items.isEmpty()) {
-      throw new NoSuchElementException();
-    }
-    int item = items.getFirst();
-    items.removeFirst();
-    if (item == candidates.getFirst()) {
-      candidates.removeFirst();
-    }
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Returns the oldest item without removing it. Throws NoSuchElementException
   // if the queue is empty.
   public int front() {
-    if (items.isEmpty()) {
-      throw new NoSuchElementException();
-    }
-    return items.getFirst();
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Returns the largest item without removing it. Throws NoSuchElementException
   // if the queue is empty.
   public int max() {
-    if (items.isEmpty()) {
-      throw new NoSuchElementException();
-    }
-    return candidates.getFirst();
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   public boolean isEmpty() {
-    return items.isEmpty();
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 }
