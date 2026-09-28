@@ -46,8 +46,8 @@ public class MaxQueueTest {
   @Test
   public void maxOnEmptyQueueThrows() {
     try {
-      queue.max();
-      fail("expected NoSuchElementException when calling max on an empty queue");
+      queue.getMax();
+      fail("expected NoSuchElementException when calling getMax on an empty queue");
     } catch (NoSuchElementException e) {
       return;
     }
@@ -68,7 +68,7 @@ public class MaxQueueTest {
   @Test
   public void maxOfSingleItem() {
     queue.enqueue(4);
-    assertEquals(4, queue.max());
+    assertEquals(4, queue.getMax());
   }
 
   @Test
@@ -82,14 +82,14 @@ public class MaxQueueTest {
   public void enqueuingALargerItemBecomesTheMaximum() {
     queue.enqueue(4);
     queue.enqueue(7);
-    assertEquals(7, queue.max());
+    assertEquals(7, queue.getMax());
   }
 
   @Test
   public void enqueuingASmallerItemKeepsTheMaximum() {
     queue.enqueue(4);
     queue.enqueue(1);
-    assertEquals(4, queue.max());
+    assertEquals(4, queue.getMax());
   }
 
   @Test
@@ -106,7 +106,7 @@ public class MaxQueueTest {
     queue.enqueue(1);
     queue.enqueue(7);
     queue.dequeue();
-    assertEquals(7, queue.max());
+    assertEquals(7, queue.getMax());
   }
 
   @Test
@@ -114,7 +114,18 @@ public class MaxQueueTest {
     queue.enqueue(7);
     queue.enqueue(3);
     queue.dequeue();
-    assertEquals(3, queue.max());
+    assertEquals(3, queue.getMax());
+  }
+
+  @Test
+  public void dequeuingTheMaximumOfSeveralItemsRecoversTheNextMaximum() {
+    queue.enqueue(7);
+    queue.enqueue(2);
+    queue.enqueue(5);
+    queue.enqueue(1);
+    queue.enqueue(4);
+    queue.dequeue();
+    assertEquals(5, queue.getMax());
   }
 
   @Test
@@ -123,7 +134,7 @@ public class MaxQueueTest {
     queue.enqueue(5);
     queue.enqueue(2);
     queue.dequeue();
-    assertEquals(5, queue.max());
+    assertEquals(5, queue.getMax());
   }
 
   @Test
@@ -133,7 +144,7 @@ public class MaxQueueTest {
     queue.enqueue(2);
     queue.dequeue();
     queue.dequeue();
-    assertEquals(2, queue.max());
+    assertEquals(2, queue.getMax());
   }
 
   @Test

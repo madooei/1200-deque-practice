@@ -11,14 +11,9 @@ public final class SlidingWindowMaximum {
   }
 
   // Returns the maximum of every window of width k in values, in order, so
-  // the result has length values.length - k + 1. Assumes values is not null.
-  // Throws IllegalArgumentException if k is less than 1 or greater than
-  // values.length.
+  // the result has length values.length - k + 1. Assumes values is not null
+  // and k is between 1 and values.length.
   public static int[] slidingMaximum(int[] values, int k) {
-    if (k < 1 || k > values.length) {
-      throw new IllegalArgumentException();
-    }
-
     int[] answer = new int[values.length - k + 1];
     Deque<Integer> candidates = new ArrayDeque<>();
 
@@ -47,13 +42,8 @@ public final class SlidingWindowMaximum {
 
   // The brute-force solution. Returns the maximum of every window of width k
   // in values, in order, so the result has length values.length - k + 1.
-  // Assumes values is not null. Throws IllegalArgumentException if k is less
-  // than 1 or greater than values.length.
+  // Assumes values is not null and k is between 1 and values.length.
   public static int[] slidingMaximumBruteForce(int[] values, int k) {
-    if (k < 1 || k > values.length) {
-      throw new IllegalArgumentException();
-    }
-
     int[] answer = new int[values.length - k + 1];
     for (int start = 0; start <= values.length - k; start++) {
       int max = values[start];

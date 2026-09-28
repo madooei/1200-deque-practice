@@ -1,6 +1,6 @@
 # Deque — Practice
 
-Three practice problems. `SlidingWindowMaximum` reports the maximum of every window of width `k` in an array. `Palindrome` uses a deque to check whether a string reads the same from both ends. `MaxQueue` is a queue with an extra `max` operation, built from two deques.
+Two practice problems. `MaxQueue` is a queue with an extra `getMax` operation, built from two deques. `SlidingWindowMaximum` reports the maximum of every window of width `k` in an array.
 
 ## Prerequisites
 
@@ -21,16 +21,14 @@ code/
         Deque.java                               # the Deque ADT contract (copied from the chapter)
         ArrayDeque.java                          # circular-array Deque (copied from the chapter)
       practice/
+        MaxQueue.java                            # a queue with a getMax operation
         SlidingWindowMaximum.java                # the maximum of every window (2 solutions)
-        Palindrome.java                          # palindrome check from both ends
-        MaxQueue.java                            # a queue with a max operation
     test/
       practice/
+        MaxQueueTest.java                        # tests for MaxQueue
         SlidingWindowMaximumTest.java            # abstract: the sliding window maximum scenarios
         SlidingWindowMaximumBruteForceTest.java  # runs them against the scan-every-window solution
-        SlidingWindowMaximumDequeTest.java       # runs them against the monotonic-deque solution
-        PalindromeTest.java                      # tests for Palindrome
-        MaxQueueTest.java                        # tests for MaxQueue
+        SlidingWindowMaximumDequeTest.java       # runs them against the deque solution
   scripts/
     test.sh                                      # compile and run every JUnit test
 ```
@@ -44,10 +42,8 @@ There is no demo program for these problems; the tests are how you check your wo
 
 ## What's here
 
-- `deque.Deque<T>` and `deque.ArrayDeque<T>` — unchanged copies from the chapter. `SlidingWindowMaximum`, `Palindrome`, and `MaxQueue` use them, so they are included here to keep this code self-contained.
-- `practice.SlidingWindowMaximum` — two solutions side by side: scanning every window, and the monotonic deque of indices.
-- `practice.SlidingWindowMaximumTest` — the abstract scenario suite for sliding window maximum. It has one subclass per solution, so you can test one solution alone.
-- `practice.Palindrome` — decides whether a string is a palindrome by comparing and removing characters at both ends of a deque.
-- `practice.PalindromeTest` — tests for `Palindrome`.
-- `practice.MaxQueue` — a queue of integers with `max`, using one deque for the queue order and one deque for the maximum candidates.
+- `deque.Deque<T>` and `deque.ArrayDeque<T>` — unchanged copies from the chapter. `MaxQueue` and `SlidingWindowMaximum` use them, so they are included here to keep this code self-contained.
+- `practice.MaxQueue` — a queue of integers with `getMax`, using one deque for the queue order and one deque for the maximum candidates.
 - `practice.MaxQueueTest` — tests for `MaxQueue`.
+- `practice.SlidingWindowMaximum` — two solutions side by side: scanning every window, and the deque of indices.
+- `practice.SlidingWindowMaximumTest` — the abstract scenario suite for sliding window maximum. It has one subclass per solution, so you can test one solution alone.
