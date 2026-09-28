@@ -37,7 +37,7 @@ public class MaxQueue {
 
   // Returns the largest item without removing it. Throws NoSuchElementException
   // if the queue is empty.
-  public int max() {
+  public int getMax() {
     // TODO: Implement me
     throw new UnsupportedOperationException("TODO: Implement me");
   }

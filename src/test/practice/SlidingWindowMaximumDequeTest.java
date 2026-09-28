@@ -1,6 +1,6 @@
 package practice;
 
-/** Runs the sliding window maximum scenarios against the monotonic-deque solution. */
+/** Runs the sliding window maximum scenarios against the deque solution. */
 public class SlidingWindowMaximumDequeTest extends SlidingWindowMaximumTest {
 
   @Override
