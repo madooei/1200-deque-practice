@@ -5,6 +5,6 @@ public class SlidingWindowMaximumBruteForceTest extends SlidingWindowMaximumTest
 
   @Override
   protected int[] slidingMaximum(int[] values, int k) {
-    return SlidingWindowMaximum.slidingMaximumBruteForce(values, k);
+    return SlidingWindowMaximumBruteForce.slidingMaximum(values, k);
   }
 }
