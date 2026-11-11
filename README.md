@@ -1,6 +1,6 @@
 # Deque — Practice
 
-Two practice problems. `MaxQueue` is a queue with an extra `getMax` operation, built from two deques. `SlidingWindowMaximum` reports the maximum of every window of width `k` in an array.
+Two practice problems. `MaxQueue` is a queue with an extra `getMax` operation, built from two deques. Sliding window maximum asks for the maximum of every window of width `k` in an array, solved two ways.
 
 ## Prerequisites
 
@@ -22,13 +22,14 @@ code/
         ArrayDeque.java                          # circular-array Deque (copied from the chapter)
       practice/
         MaxQueue.java                            # a queue with a getMax operation
-        SlidingWindowMaximum.java                # the maximum of every window (2 solutions)
+        SlidingWindowMaximumBruteForce.java      # scan every window
+        SlidingWindowMaximumDeque.java           # one pass with a deque of candidate indices
     test/
       practice/
         MaxQueueTest.java                        # tests for MaxQueue
         SlidingWindowMaximumTest.java            # abstract: the sliding window maximum scenarios
-        SlidingWindowMaximumBruteForceTest.java  # runs them against the scan-every-window solution
-        SlidingWindowMaximumDequeTest.java       # runs them against the deque solution
+        SlidingWindowMaximumBruteForceTest.java  # runs them against SlidingWindowMaximumBruteForce
+        SlidingWindowMaximumDequeTest.java       # runs them against SlidingWindowMaximumDeque
   scripts/
     test.sh                                      # compile and run every JUnit test
 ```
@@ -42,8 +43,9 @@ There is no demo program for these problems; the tests are how you check your wo
 
 ## What's here
 
-- `deque.Deque<T>` and `deque.ArrayDeque<T>` — unchanged copies from the chapter. `MaxQueue` and `SlidingWindowMaximum` use them, so they are included here to keep this code self-contained.
+- `deque.Deque<T>` and `deque.ArrayDeque<T>` — unchanged copies from the chapter. `MaxQueue` and `SlidingWindowMaximumDeque` use them, so they are included here to keep this code self-contained.
 - `practice.MaxQueue` — a queue of integers with `getMax`, using one deque for the queue order and one deque for the maximum candidates.
 - `practice.MaxQueueTest` — tests for `MaxQueue`.
-- `practice.SlidingWindowMaximum` — two solutions side by side: scanning every window, and the deque of indices.
+- `practice.SlidingWindowMaximumBruteForce` — `slidingMaximum`, which scans every window for its maximum.
+- `practice.SlidingWindowMaximumDeque` — `slidingMaximum`, which makes one pass and keeps the candidate indices in a deque.
 - `practice.SlidingWindowMaximumTest` — the abstract scenario suite for sliding window maximum. It has one subclass per solution, so you can test one solution alone.

@@ -3,10 +3,10 @@ package practice;
 import deque.ArrayDeque;
 import deque.Deque;
 
-/** Solutions to the sliding window maximum problem. */
-public final class SlidingWindowMaximum {
+/** Practice problem: find the maximum of every window with a deque of candidate indices. */
+public final class SlidingWindowMaximumDeque {
 
-  private SlidingWindowMaximum() {
+  private SlidingWindowMaximumDeque() {
     // This class should not be instantiated!
   }
 
@@ -37,23 +37,6 @@ public final class SlidingWindowMaximum {
       }
     }
 
-    return answer;
-  }
-
-  // The brute-force solution. Returns the maximum of every window of width k
-  // in values, in order, so the result has length values.length - k + 1.
-  // Assumes values is not null and k is between 1 and values.length.
-  public static int[] slidingMaximumBruteForce(int[] values, int k) {
-    int[] answer = new int[values.length - k + 1];
-    for (int start = 0; start <= values.length - k; start++) {
-      int max = values[start];
-      for (int i = start + 1; i < start + k; i++) {
-        if (values[i] > max) {
-          max = values[i];
-        }
-      }
-      answer[start] = max;
-    }
     return answer;
   }
 }

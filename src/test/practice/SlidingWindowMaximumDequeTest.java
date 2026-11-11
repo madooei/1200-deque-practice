@@ -5,6 +5,6 @@ public class SlidingWindowMaximumDequeTest extends SlidingWindowMaximumTest {
 
   @Override
   protected int[] slidingMaximum(int[] values, int k) {
-    return SlidingWindowMaximum.slidingMaximum(values, k);
+    return SlidingWindowMaximumDeque.slidingMaximum(values, k);
   }
 }
