@@ -45,7 +45,7 @@ code/
 - `scripts/test.sh practice.SlidingWindowMaximumBruteForceTest` — compiles everything and runs only that test class. Use this while you are working on one problem or one solution and the others are still empty.
 - `scripts/run.sh demo.MaxQueueDemo` — compiles everything and runs that one demo. Every class you implement has its own demo, `<Class>Demo`.
 
-## What's here
+## Contents
 
 - `deque.Deque<T>` and `deque.ArrayDeque<T>` — unchanged copies from the chapter. `MaxQueue` and `SlidingWindowMaximumDeque` use them, so they are included here to keep this code self-contained.
 - `practice.MaxQueue` — a queue of integers with `getMax`, using one deque for the queue order and one deque for the maximum candidates.
