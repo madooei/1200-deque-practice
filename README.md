@@ -24,6 +24,10 @@ code/
         MaxQueue.java                            # a queue with a getMax operation
         SlidingWindowMaximumBruteForce.java      # scan every window
         SlidingWindowMaximumDeque.java           # one pass with a deque of candidate indices
+      demo/                                      # one demo per solution class
+        MaxQueueDemo.java
+        SlidingWindowMaximumBruteForceDemo.java
+        SlidingWindowMaximumDequeDemo.java
     test/
       practice/
         MaxQueueTest.java                        # tests for MaxQueue
@@ -32,14 +36,14 @@ code/
         SlidingWindowMaximumDequeTest.java       # runs them against SlidingWindowMaximumDeque
   scripts/
     test.sh                                      # compile and run every JUnit test
+    run.sh                                       # compile and run one demo
 ```
 
 ## How to compile and run
 
 - `scripts/test.sh` — compiles everything and runs the full JUnit suite.
 - `scripts/test.sh practice.SlidingWindowMaximumBruteForceTest` — compiles everything and runs only that test class. Use this while you are working on one problem or one solution and the others are still empty.
-
-There is no demo program for these problems; the tests are how you check your work.
+- `scripts/run.sh demo.MaxQueueDemo` — compiles everything and runs that one demo. Every class you implement has its own demo, `<Class>Demo`.
 
 ## What's here
 
@@ -49,3 +53,4 @@ There is no demo program for these problems; the tests are how you check your wo
 - `practice.SlidingWindowMaximumBruteForce` — `slidingMaximum`, which scans every window for its maximum.
 - `practice.SlidingWindowMaximumDeque` — `slidingMaximum`, which makes one pass and keeps the candidate indices in a deque.
 - `practice.SlidingWindowMaximumTest` — the abstract scenario suite for sliding window maximum. It has one subclass per solution, so you can test one solution alone.
+- `demo.MaxQueueDemo`, `demo.SlidingWindowMaximumBruteForceDemo`, and `demo.SlidingWindowMaximumDequeDemo` — one demo per solution class, each on an example from the notes.
